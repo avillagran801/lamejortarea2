@@ -1,10 +1,6 @@
 package lamejortarea2;
 import java.util.ArrayList;
 
-/**
- *
- * @author ana
- */
 class Deposito{
     private ArrayList<Bebida> d;
     

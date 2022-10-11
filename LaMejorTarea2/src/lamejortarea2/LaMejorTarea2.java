@@ -1,9 +1,5 @@
 package lamejortarea2;
 
-/**
- *
- * @author ana
- */
 public class LaMejorTarea2 {
 
     public static void main(String[] args) {

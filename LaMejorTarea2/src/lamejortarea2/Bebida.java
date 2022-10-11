@@ -1,9 +1,5 @@
 package lamejortarea2;
 
-/**
- *
- * @author ana
- */
 abstract class Bebida{
     public abstract String beber();
 }
@@ -13,6 +9,7 @@ class Sprite extends Bebida{
         super();
     }
     public String beber(){
+        System.out.println("Gluglu");
         return "sprite";
     }
 }
@@ -22,6 +19,7 @@ class CocaCola extends Bebida{
         super();
     }
     public String beber(){
+        System.out.println("Gluglu");
         return "cocacola";
     }
 }
@@ -31,6 +29,7 @@ class Fanta extends Bebida{
         super();
     }
     public String beber(){
+        System.out.println("Gluglu");
         return "fanta";
     }
 }
