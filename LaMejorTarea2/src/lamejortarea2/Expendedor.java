@@ -27,30 +27,71 @@ public class Expendedor {
     }
     
     public Bebida comprarBebida(int idBebida, Moneda m){
-        if(m.getValor() >= precio){
-            if (m.getValor() > precio) {
-                for (int i = 0; i < (m.getValor()-precio)/100; i++){
-                    Moneda100 m100_aux = new Moneda100();
-                    vuelto.add(m100_aux);
-                }
-                System.out.println("Hay vuelto disponible.");
+        try {
+            if(m == null){
+                throw new PagoIncorrectoException("No se acepta Null como pago.");
             }
-            switch (idBebida){
-                // 0 siendo coca; 1 siendo sprite; 2 siendo fanta.
-                case 0:
-                    return coca.getBebida();
+            if(m.getValor() >= precio){
+                switch (idBebida){
+                    // 0 siendo coca; 1 siendo sprite; 2 siendo fanta.
+                    case 0:
+                        if(coca.getBebida() == null){
+                            throw new NoHayBebidaException("No queda Coca-cola.");
+                        }
+                        Expendedor.this.crearVuelto(m);
+                        return coca.getBebida();
+
+                    case 1:
+                        if(coca.getBebida() == null){
+                            throw new NoHayBebidaException("No queda Sprite.");
+                        }
+                        Expendedor.this.crearVuelto(m);
+                        return sprite.getBebida();
+
+                    case 2:
+                        if(coca.getBebida() == null){
+                            throw new NoHayBebidaException("No queda Fanta.");
+                        }
+                        Expendedor.this.crearVuelto(m);
+                        return fanta.getBebida();
                     
-                case 1:
-                    return sprite.getBebida();
-                    
-                case 2:
-                    return fanta.getBebida();
-                    
-                default:
-                    System.out.println("Hubo un error!\nID de bebida erróneo");
-                    return null;
+                    default:
+                        throw new NoHayBebidaException("ID equivocado.");
+                }
+            } else {
+                throw new NoHayBebidaException("Dinero insuficiente.");
             }
         }
-        return null;
+        catch (PagoIncorrectoException ex){
+            System.out.println(ex.getMessage());
+            return null;
+        }
+        catch (NoHayBebidaException ex){
+            System.out.println(ex.getMessage() + "\nSu moneda ha sido devuelta.");
+            vuelto.add(m);
+            return null;
+        }
+    }
+    
+    private void crearVuelto(Moneda coin_aux){
+        // Un método privado, ya que solo el Expendedor puede crear vuelto.
+        if (coin_aux.getValor() > precio) {
+            for (int i = 0; i < (coin_aux.getValor()-precio)/100; i++){
+                Moneda100 m100_aux = new Moneda100();
+                vuelto.add(m100_aux);
+            }
+            System.out.println("Hay vuelto disponible.");
+        }
+    }
+    
+    public Moneda getVuelto(){
+        if(vuelto.isEmpty()){
+            System.out.println("Ya no queda vuelto que dar.");
+            return null;
+        } else {
+            System.out.println("Quedan " + (vuelto.size() - 1) + 
+                    " monedas en el deposito.");
+            return vuelto.get(0);
+        }
     }
 }

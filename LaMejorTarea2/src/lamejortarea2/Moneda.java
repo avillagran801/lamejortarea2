@@ -26,7 +26,7 @@ class Moneda1500 extends Moneda {
     }
     
     public String toString(){
-        return "Moneda de $1500";
+        return "Moneda de $1500\nNúmero de serie: " + Moneda1500.this.getSerie();
     }
 }
 
@@ -44,7 +44,7 @@ class Moneda1000 extends Moneda {
     }
     
     public String toString(){
-        return "Moneda de $1000";
+        return "Moneda de $1000\nNúmero de serie: " + Moneda1000.this.getSerie();
     }
 }
 
@@ -62,7 +62,7 @@ class Moneda500 extends Moneda {
     }
     
     public String toString(){
-        return "Moneda de $500";
+        return "Moneda de $500\nNúmero de serie: " + Moneda500.this.getSerie();
     }
 }
 
@@ -80,6 +80,6 @@ class Moneda100 extends Moneda {
     }
     
     public String toString(){
-        return "Moneda de $100";
+        return "Moneda de $100\nNúmero de serie: " + Moneda100.this.getSerie();
     }
 }
