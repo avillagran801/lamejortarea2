@@ -16,13 +16,13 @@ public class Expendedor {
         vuelto = new ArrayList<Moneda>();
         
         for(int i=0; i<cant; i++){
-            Bebida aux_coca = new CocaCola();
-            Bebida aux_sprite = new Sprite();
-            Bebida aux_fanta = new Fanta();
-            
-            coca.addBebida(aux_coca);
-            sprite.addBebida(aux_sprite);
-            fanta.addBebida(aux_fanta);
+           Bebida aux_coca = new CocaCola();
+           Bebida aux_sprite = new Sprite();
+           Bebida aux_fanta = new Fanta();
+
+           coca.addBebida(aux_coca);
+           sprite.addBebida(aux_sprite);
+           fanta.addBebida(aux_fanta);
         }
     }
     
@@ -35,21 +35,21 @@ public class Expendedor {
                 switch (idBebida){
                     // 0 siendo coca; 1 siendo sprite; 2 siendo fanta.
                     case 0:
-                        if(coca.getBebida() == null){
+                        if(coca.getSize() == 0){
                             throw new NoHayBebidaException("No queda Coca-cola.");
                         }
                         Expendedor.this.crearVuelto(m);
                         return coca.getBebida();
 
                     case 1:
-                        if(coca.getBebida() == null){
+                        if(sprite.getSize() == 0){
                             throw new NoHayBebidaException("No queda Sprite.");
                         }
                         Expendedor.this.crearVuelto(m);
                         return sprite.getBebida();
 
                     case 2:
-                        if(coca.getBebida() == null){
+                        if(fanta.getSize() == 0){
                             throw new NoHayBebidaException("No queda Fanta.");
                         }
                         Expendedor.this.crearVuelto(m);

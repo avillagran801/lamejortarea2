@@ -11,11 +11,14 @@ class Deposito{
         d.add(b);
     }
     public Bebida getBebida(){
-        if(d.size() == 0){
+        if(d.isEmpty()){
             return null;
         }
         else{
-            return d.remove(0);
+            return d.remove(d.size()-1);
         }
+    }
+    public int getSize(){
+        return d.size();
     }
 }

@@ -6,6 +6,7 @@ class Comprador {
     
     public Comprador(int idBebida, Moneda moneda, Expendedor expendedor){
         vuelto = 0;
-        // expendedor.comprarBebida(idBebida, moneda);
+        sabor = expendedor.comprarBebida(idBebida, moneda).beber();
+        System.out.println(sabor);
     }
 }
