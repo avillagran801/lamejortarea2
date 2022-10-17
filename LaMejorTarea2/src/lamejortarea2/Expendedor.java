@@ -91,11 +91,11 @@ public class Expendedor {
         } else {
             System.out.println("Quedan " + (vuelto.size() - 1) + 
                     " monedas en el deposito.");
-            return vuelto.get(0);
+            return vuelto.remove(0);
         }
     }
     
-    public int checkVuelto(){
-        return vuelto.size();
+    public int getPrecio(){
+        return precio;
     }
 }
