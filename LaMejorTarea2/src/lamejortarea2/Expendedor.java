@@ -94,4 +94,8 @@ public class Expendedor {
             return vuelto.get(0);
         }
     }
+    
+    public int checkVuelto(){
+        return vuelto.size();
+    }
 }

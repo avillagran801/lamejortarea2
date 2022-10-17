@@ -8,5 +8,10 @@ class Comprador {
         vuelto = 0;
         sabor = expendedor.comprarBebida(idBebida, moneda).beber();
         System.out.println(sabor);
+        if (sabor!=null){
+            if(expendedor.getVuelto())
+        }
     }
+    
+    public void getVuelto
 }

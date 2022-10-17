@@ -8,6 +8,8 @@ public class LaMejorTarea2 {
         
         Comprador Juan = new Comprador(0, m1, e1);
         Comprador Pedrito = new Comprador(0, m1, e1);
+        
+        
     }
     
 }
