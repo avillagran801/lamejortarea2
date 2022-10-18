@@ -26,7 +26,9 @@ public class Expendedor {
         }
     }
     
-    public Bebida comprarBebida(int idBebida, Moneda m){
+    public Bebida comprarBebida(int idBebida, Moneda m) throws
+            NoHayBebidaException, PagoInsuficienteException,
+            PagoIncorrectoException {
         try {
             if(m == null){
                 throw new PagoIncorrectoException("No se acepta Null como pago.");
@@ -59,14 +61,25 @@ public class Expendedor {
                         throw new NoHayBebidaException("ID equivocado.");
                 }
             } else {
-                throw new NoHayBebidaException("Dinero insuficiente.");
+                throw new PagoInsuficienteException("Dinero insuficiente.");
             }
         }
         catch (PagoIncorrectoException ex){
+            System.out.println("Exception in thread \"main\" "
+                    + "PagoIncorrectoException.");
             System.out.println(ex.getMessage());
             return null;
         }
         catch (NoHayBebidaException ex){
+            System.out.println("Exception in thread \"main\" "
+                    + "NoHayBebidaException.");
+            System.out.println(ex.getMessage() + "\nSu moneda ha sido devuelta.");
+            vuelto.add(m);
+            return null;
+        }
+        catch (PagoInsuficienteException ex){
+            System.out.println("Exception in thread \"main\" "
+                    + "PagoInsuficienteException.");
             System.out.println(ex.getMessage() + "\nSu moneda ha sido devuelta.");
             vuelto.add(m);
             return null;
