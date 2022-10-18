@@ -26,9 +26,9 @@ public class Expendedor {
         }
     }
     
-    public Bebida comprarBebida(int idBebida, Moneda m) throws
-            NoHayBebidaException, PagoInsuficienteException,
-            PagoIncorrectoException {
+    public Bebida comprarBebida(int idBebida, Moneda m){
+        // Decidimos aplicar el método try-catch dentro del bloque de código en
+        // vez de afuera por temas de simplicidad.
         try {
             if(m == null){
                 throw new PagoIncorrectoException("No se acepta Null como pago.");
