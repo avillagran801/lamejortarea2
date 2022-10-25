@@ -28,6 +28,8 @@ public class LaMejorTarea2 {
         
         System.out.println("\n*** COMPRA N°5 ***\n");
         Comprador Marta = new Comprador(2, m3, e1);
+        
+        System.out.println(m3.getSerie());
     }
     
 }
